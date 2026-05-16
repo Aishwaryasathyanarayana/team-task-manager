@@ -1,7 +1,55 @@
-{% for project in projects %}
+{% extends 'base.html' %}
+
+{% block content %}
 <div class="card">
-    <h2>{{ project.name }}</h2>
-    <p>{{ project.description }}</p>
-    <p><strong>Deadline:</strong> {{ project.deadline }}</p>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Project Management</h2>
+
+        <a href="/create-project">
+            <button style="
+                padding:10px 18px;
+                background:#4CAF50;
+                color:white;
+                border:none;
+                border-radius:8px;
+                cursor:pointer;
+                font-weight:bold;
+            ">
+                + Create Project
+            </button>
+        </a>
+    </div>
+
+    <br>
+
+    {% if projects %}
+    <table style="
+        width:100%;
+        border-collapse:collapse;
+        background:white;
+        border-radius:10px;
+        overflow:hidden;
+    ">
+        <thead>
+            <tr style="background:#4CAF50; color:white;">
+                <th style="padding:12px;">Project Name</th>
+                <th style="padding:12px;">Description</th>
+                <th style="padding:12px;">Deadline</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for project in projects %}
+            <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:12px;">{{ project.name }}</td>
+                <td style="padding:12px;">{{ project.description }}</td>
+                <td style="padding:12px;">{{ project.deadline }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No projects available.</p>
+    {% endif %}
 </div>
-{% endfor %}
+{% endblock %}

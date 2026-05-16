@@ -1,12 +1,57 @@
-<p>
-Status:
-<span style="
-padding:6px 12px;
-border-radius:20px;
-background:#dbeafe;
-color:#1e40af;
-font-size:14px;
-">
-{{ task.status }}
-</span>
-</p>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Task Management</h2>
+
+        <a href="/create-task">
+            <button style="
+                padding:10px 18px;
+                background:#4CAF50;
+                color:white;
+                border:none;
+                border-radius:8px;
+                cursor:pointer;
+                font-weight:bold;
+            ">
+                + Create Task
+            </button>
+        </a>
+    </div>
+
+    <br>
+
+    {% if tasks %}
+    <table style="
+        width:100%;
+        border-collapse:collapse;
+        background:white;
+        border-radius:10px;
+        overflow:hidden;
+    ">
+        <thead>
+            <tr style="background:#4CAF50; color:white;">
+                <th style="padding:12px;">Title</th>
+                <th style="padding:12px;">Description</th>
+                <th style="padding:12px;">Due Date</th>
+                <th style="padding:12px;">Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for task in tasks %}
+            <tr style="border-bottom:1px solid #ddd;">
+                <td style="padding:12px;">{{ task.title }}</td>
+                <td style="padding:12px;">{{ task.description }}</td>
+                <td style="padding:12px;">{{ task.due_date }}</td>
+                <td style="padding:12px;">{{ task.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No tasks available.</p>
+    {% endif %}
+</div>
+{% endblock %}

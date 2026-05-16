@@ -1,17 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card">
-    <h2>Create Project</h2>
+<div class="card" style="max-width:600px; margin:auto;">
+    <h2>Create New Project</h2>
 
-    <form method="POST">
-        <input type="text" name="name" placeholder="Project name" required>
+    <form method="POST" action="/create-project">
 
-        <textarea name="description" placeholder="Project description"></textarea>
+        <input type="text"
+               name="name"
+               placeholder="Project Name"
+               required
+               style="width:100%; padding:12px; margin:8px 0;">
 
-        <input type="date" name="deadline" required>
+        <textarea
+            name="description"
+            placeholder="Project Description"
+            style="width:100%; padding:12px; margin:8px 0;"></textarea>
 
-        <button type="submit">Create Project</button>
+        <input type="date"
+               name="deadline"
+               required
+               style="width:100%; padding:12px; margin:8px 0;">
+
+        <button type="submit"
+                style="
+                    width:100%;
+                    padding:12px;
+                    background:#4CAF50;
+                    color:white;
+                    border:none;
+                    border-radius:8px;
+                    font-size:16px;
+                    cursor:pointer;
+                    margin-top:10px;
+                ">
+            Create Project
+        </button>
     </form>
 </div>
 {% endblock %}

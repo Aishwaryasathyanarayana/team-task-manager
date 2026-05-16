@@ -1,29 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card">
-    <h2>Create Task</h2>
+<div class="card" style="max-width:600px; margin:auto;">
+    <h2>Create New Task</h2>
 
-    <form method="POST">
-        <input type="text" name="title" placeholder="Task title" required>
+    <form method="POST" action="/create-task">
 
-        <textarea name="description" placeholder="Task description"></textarea>
+        <input type="text"
+               name="title"
+               placeholder="Task Title"
+               required
+               style="width:100%; padding:12px; margin:8px 0;">
 
-        <input type="date" name="due_date" required>
+        <textarea
+            name="description"
+            placeholder="Task Description"
+            style="width:100%; padding:12px; margin:8px 0;"></textarea>
 
-        <select name="assigned_to">
+        <input type="date"
+               name="due_date"
+               required
+               style="width:100%; padding:12px; margin:8px 0;">
+
+        <select name="assigned_to"
+                required
+                style="width:100%; padding:12px; margin:8px 0;">
             {% for user in users %}
             <option value="{{ user.id }}">{{ user.name }}</option>
             {% endfor %}
         </select>
 
-        <select name="project_id">
+        <select name="project_id"
+                required
+                style="width:100%; padding:12px; margin:8px 0;">
             {% for project in projects %}
             <option value="{{ project.id }}">{{ project.name }}</option>
             {% endfor %}
         </select>
 
-        <button type="submit">Create Task</button>
+        <button type="submit"
+                style="
+                    width:100%;
+                    padding:12px;
+                    background:#4CAF50;
+                    color:white;
+                    border:none;
+                    border-radius:8px;
+                    font-size:16px;
+                    cursor:pointer;
+                    margin-top:10px;
+                ">
+            Create Task
+        </button>
     </form>
 </div>
 {% endblock %}
