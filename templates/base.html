@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TaskFlow Pro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 class="logo">TaskFlow</h2>
+
+    <a href="/dashboard">Dashboard</a>
+    <a href="/projects">Projects</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main-content">
+    <div class="navbar">
+        <h3>Team Task Manager</h3>
+        <p>Welcome, {{ current_user.name if current_user.is_authenticated else 'Guest' }}</p>
+    </div>
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

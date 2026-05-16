@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="margin-bottom:20px;">Dashboard</h1>
+
+<div class="stats-grid">
+    <div class="stat-box">
+        <h4>Total Projects</h4>
+        <h2>{{ projects }}</h2>
+    </div>
+
+    <div class="stat-box">
+        <h4>Total Tasks</h4>
+        <h2>{{ tasks }}</h2>
+    </div>
+
+    <div class="stat-box">
+        <h4>Completed</h4>
+        <h2>{{ completed }}</h2>
+    </div>
+</div>
+{% endblock %}

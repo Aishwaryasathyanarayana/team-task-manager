@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Create Account</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Enter name" required>
+
+        <input type="email" name="email" placeholder="Enter email" required>
+
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <select name="role" required>
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="member">Member</option>
+        </select>
+
+        <button type="submit">Signup</button>
+    </form>
+
+    <p>Already have account? <a href="/login">Login</a></p>
+</div>
+{% endblock %}
